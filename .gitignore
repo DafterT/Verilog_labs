@@ -7,6 +7,12 @@ output_files
 *.bak
 *.rpt
 simulation
+*.qws
+SP_unit
+*.xml
+*.nlv
+*.qsys
+*.sopcinfo
 
 # ModelSim
 work
