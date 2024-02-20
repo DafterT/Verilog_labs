@@ -5,10 +5,8 @@ output_files
 *.qpf
 *.qsf
 *.bak
-*.svo
-*.sdo
-*.xrf
-*.sft
+*.rpt
+simulation
 
 # ModelSim
 work
