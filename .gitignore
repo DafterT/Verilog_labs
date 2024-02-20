@@ -13,6 +13,7 @@ SP_unit
 *.nlv
 *.qsys
 *.sopcinfo
+*.qarlog
 
 # ModelSim
 work
