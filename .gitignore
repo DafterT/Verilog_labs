@@ -14,6 +14,7 @@ SP_unit
 *.qsys
 *.sopcinfo
 *.qarlog
+*.stp
 
 # ModelSim
 work

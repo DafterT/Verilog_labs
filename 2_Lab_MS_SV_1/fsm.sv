@@ -8,11 +8,7 @@ module fsm (
   output bit BmA
 );
 
-  enum bit [1:0] {
-    EQ,
-    A_,
-    B_
-  } states;
+  enum bit [1:0] {EQ, A_, B_} states;
 
   always_ff @(posedge CLK, negedge rst_n) begin
     if (~rst_n) states <= EQ;
