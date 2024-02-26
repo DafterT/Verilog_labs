@@ -16,6 +16,8 @@ SP_unit
 *.qarlog
 *.stp
 *_restored
+transcript
+*.wlf
 
 # ModelSim
 work
