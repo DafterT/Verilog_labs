@@ -61,7 +61,7 @@ module lab_MS_SV2 (
     if (ENA)
       if (reset) delay_cntr <= 0;
       else if (start_count) delay_cntr <= delay_val - 1'b1;
-      else if (curr_state == wait_delay) delay_cntr <= 1'b0;
+      else if (curr_state != wait_delay) delay_cntr <= 1'b0;
       else if (delay_cntr != 0) delay_cntr <= delay_cntr - 1'b1;
   end
 
