@@ -22,7 +22,7 @@ module lab_MS_SV2 (
 
   always_ff @(posedge clk) begin : go_to_next_state
     if (ENA)
-      if (reset) curr_state = disarmed;
+      if (reset) curr_state <= disarmed;
       else curr_state <= next_state;
   end
 
