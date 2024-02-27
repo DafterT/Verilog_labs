@@ -20,7 +20,7 @@ module lab_MS_SV2 (
   bit [2:0] sensors;
   assign sensors = {front_door, rear_door, window};
 
-  always @(posedge clk) begin : go_to_next_state
+  always_ff @(posedge clk) begin : go_to_next_state
     if (ENA)
       if (reset) curr_state = disarmed;
       else curr_state <= next_state;
