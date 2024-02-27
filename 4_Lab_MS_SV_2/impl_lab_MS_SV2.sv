@@ -5,7 +5,7 @@ module impl_lab_MS_SV2 (
   (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "25" *)
   input bit rear_door_in,
   (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "46" *)
-  input  bit       window_in,
+  input bit window_in,
   (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "23" *)
   input bit clk, 
   (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "88" *)
