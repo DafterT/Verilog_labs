@@ -7,15 +7,15 @@ module impl_lab_MS_SV2 (
   (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "46" *)
   input  bit       window_in,
   (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "23" *)
-  input bit clk,
+  input bit clk, 
   (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "88" *)
   input bit reset_in,
   (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "49, 91, 90, 89" *)
-  input bit [3:0] keypad_in,
+  input bit [3:0] keypad_in, 
   (* altera_attribute = "-name IO_STANDARD \"2.5-V\"", chip_pin = "72" *)
-  output bit alarm_siren,
+  output bit alarm_siren, 
   (* altera_attribute = "-name IO_STANDARD \"2.5-V\"", chip_pin = "71" *)
-  output bit is_armed,
+  output bit is_armed, 
   (* altera_attribute = "-name IO_STANDARD \"2.5-V\"", chip_pin = "70" *)
   output bit is_wait_delay
 );
@@ -30,18 +30,18 @@ module impl_lab_MS_SV2 (
     keypad  = '{keypad[0], keypad_in};
     reset   = '{reset[0], reset_in};
   end
-  
+
   // counter divider
   int i = 0;
   localparam divider = 2_500_000;
-	
+
   always_ff @(posedge clk) begin
     if (i == divider) i <= 1'b0;
-	 else i <= i + 1'b1;
+    else i <= i + 1'b1;
   end
-  
+
   assign ENA = (i == divider);
-  
+
   // module
   lab_MS_SV2 u_lab_MS_SV2 (
     .*,
