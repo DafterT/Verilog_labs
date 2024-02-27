@@ -26,9 +26,9 @@ module impl_lab_MS_SV2 (
   bit [3:0] keypad [1:0];
 
   always_ff @(posedge clk) begin
-    sensors = '{sensors[0], {front_door_in, rear_door_in, window_in}};
-    keypad  = '{keypad[0], keypad_in};
-    reset   = '{reset[0], reset_in};
+    sensors <= '{sensors[0], {front_door_in, rear_door_in, window_in}};
+    keypad  <= '{keypad[0], keypad_in};
+    reset   <= '{reset[0], reset_in};
   end
 
   // counter divider
