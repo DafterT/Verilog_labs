@@ -8,9 +8,9 @@ module impl_lab_MS_SV2 (
   input bit window_in,
   (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "23" *)
   input bit clk, 
-  (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "88" *)
+  (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "49" *)
   input bit reset_in,
-  (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "49, 91, 90, 89" *)
+  (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "88, 89, 90, 91" *)
   input bit [3:0] keypad_in, 
   (* altera_attribute = "-name IO_STANDARD \"2.5-V\"", chip_pin = "72" *)
   output bit alarm_siren, 
