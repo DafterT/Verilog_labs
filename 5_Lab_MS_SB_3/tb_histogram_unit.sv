@@ -22,7 +22,7 @@ module tb_histogram_unit ();
   initial begin
     ENA = '1;
     for (int i = 0; i < (MAX_NUMBER + 1) * 8; i++) begin
-      @(negedge CLK) d_in += 2;
+      @(negedge CLK) d_in += 18;
     end
     @(negedge CLK)
     RST = '1;

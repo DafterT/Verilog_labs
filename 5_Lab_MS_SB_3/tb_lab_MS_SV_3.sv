@@ -14,9 +14,9 @@ module tb_lab_MS_SV_3 ();
   initial begin
     RST = '1;
     ENA = '1;
-    #(CLK_PERIOD);
+    #(CLK_PERIOD / 2);
     RST = '0;
-    repeat(127 * 5 + 1) @(negedge CLK);
+    repeat(127 * 5) @(negedge CLK);
     $stop;
   end
 
