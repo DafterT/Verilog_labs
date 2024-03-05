@@ -1,7 +1,7 @@
 `timescale 1ns / 1ns
 module histogram_unit #(
   parameter MAX_NUMBER = ((1 << 7) - 1),
-  parameter SIZE       = 10
+  parameter SIZE       = 7
 ) (
   input  bit                            CLK,
   input  bit [$clog2(MAX_NUMBER) - 1:0] d_in,
@@ -16,15 +16,12 @@ module histogram_unit #(
 
   initial for (int i = 0; i <= MAX_NUMBER; i++) mem_arr[i] = 0;
 
-  assign mem_in = RST ? '0 : (ENA ? mem_out + 1'b1 : mem_out);
+  assign mem_in = RST ? '0 : (ENA ? mem_arr[adr_in] + 1'b1 : mem_arr[adr_in]);
   assign adr_in = RST ? adr_clear : d_in;
 
-  bit [$clog2(MAX_NUMBER) - 1:0] adr_in_reg;
-
   always @(posedge CLK) begin : building_histogram
-    mem_arr[adr_in_reg] <= mem_in;
-    mem_out             <= mem_arr[adr_in];
-    adr_in_reg          <= adr_in;
+    mem_arr[adr_in] <= mem_in;
+    mem_out         <= mem_arr[adr_in];
   end
 
   always_ff @(posedge CLK, negedge RST) begin : clearing_array
