@@ -26,10 +26,8 @@ module histogram_unit #(
     .q      (mem_out_2)
   );
 
-  always_ff @(posedge CLK) begin
-    mem_out  <= mem_out_2;
-    d_in_temp <= d_in;
-  end
+  always_ff @(posedge CLK) d_in_temp <= d_in;
+  always_ff @(negedge CLK) mem_out <= mem_out_2;
   
   PLL PLL_inst (
     .inclk0(CLK),

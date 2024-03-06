@@ -25,7 +25,7 @@ module tb_histogram_unit ();
     ENA = '1;
 	 #(CLK_PERIOD);
     for (int i = 0; i < (MAX_NUMBER + 1) * 8; i++) begin
-      @(negedge CLK) d_in += 2;
+      @(negedge CLK) d_in += 11;
     end
 	 @(negedge CLK) 
 	 d_in += 1;
