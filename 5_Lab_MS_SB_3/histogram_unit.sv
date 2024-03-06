@@ -9,22 +9,35 @@ module histogram_unit #(
   input  bit                            ENA,
   output bit [              SIZE - 1:0] mem_out
 );
-  bit [SIZE - 1:0] mem_arr[0:MAX_NUMBER];
 
   bit [SIZE - 1:0] mem_in;
   bit [$clog2(MAX_NUMBER) - 1:0] adr_in, adr_clear;
 
-  initial for (int i = 0; i <= MAX_NUMBER; i++) mem_arr[i] = 0;
+  bit [$clog2(MAX_NUMBER) - 1:0] d_in_temp;
 
-  assign mem_in = RST ? '0 : (ENA ? mem_arr[adr_in] + 1'b1 : mem_arr[adr_in]);
-  assign adr_in = RST ? adr_clear : d_in;
+  bit                            clk_50;
+  bit [SIZE - 1:0] mem_out_2;
 
-  always @(posedge CLK) begin : building_histogram
-    mem_arr[adr_in] <= mem_in;
-    mem_out         <= mem_arr[adr_in];
-  end
+  RAM RAM_inst (
+    .address(adr_in),
+    .data   (mem_in),
+    .clock  (!clk_50),
+    .wren   (ENA),
+    .q      (mem_out_2)
+  );
 
-  always_ff @(posedge CLK, negedge RST) begin : clearing_array
+  always_ff @(posedge CLK) d_in_temp <= d_in;
+  always_ff @(negedge CLK) mem_out <= mem_out_2;
+  
+  PLL PLL_inst (
+    .inclk0(CLK),
+    .c0    (clk_50)
+  );
+
+  assign mem_in = RST ? '0 : (ENA ? mem_out_2 + !CLK : mem_out_2);
+  assign adr_in = RST ? adr_clear : d_in_temp;
+
+  always_ff @(negedge clk_50) begin : clearing_array
     if (~RST) adr_clear <= '0;
     else adr_clear <= adr_clear + 1'b1;
   end
