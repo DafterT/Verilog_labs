@@ -1,6 +1,6 @@
 package lab_MS_SV4_pack;
   parameter WIDTH = 8;
-  typedef enum bit [2:0] { ADD, SUB, MUL, DIV, VAR } opcode_t;
+  typedef enum bit [2:0] { ADD, SUB, MUL, DIV, OP_18 } opcode_t;
   typedef bit signed [WIDTH-1:0] data_y;
 
   typedef struct packed {
