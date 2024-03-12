@@ -5,10 +5,7 @@ module tb_lab_MS_SV4 ();
   INST_t INST;
   data_y ALU_out;
 
-  lab_MS_SV4 DUT (
-    .ALU_out,
-    .INST
-  );
+  lab_MS_SV4 DUT (.*);
 
   initial begin
     INST.opc = INST.opc.first();

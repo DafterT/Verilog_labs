@@ -12,7 +12,7 @@ module lab_MS_SV4 (
       SUB: ALU_out = INST.op_a - INST.op_b;
       MUL: ALU_out = INST.op_a * INST.op_b;
       DIV: ALU_out = INST.op_a / INST.op_b;
-      VAR: ALU_out = (INST.op_a + INST.op_b) / 2;
+      OP_18: ALU_out = (INST.op_a + INST.op_b) / 2;
     endcase
   end
 endmodule
