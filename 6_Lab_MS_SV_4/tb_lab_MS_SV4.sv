@@ -7,14 +7,25 @@ module tb_lab_MS_SV4 ();
 
   lab_MS_SV4 DUT (.*);
 
-  initial begin
+  task test(
+    input data_y a,
+    input data_y b
+  );
     INST.opc = INST.opc.first();
     do begin
-      INST.op_a = 10;
-      INST.op_b = -5;
+      INST.op_a = a;
+      INST.op_b = b;
       #10 INST.opc = INST.opc.next();
     end while (INST.opc != INST.opc.last());
     #10;
+    $display("\n");
+  endtask
+
+  initial begin
+    test(10, -5);
+    test(127, 127);
+    test(-128, -128);
+    test(10, 0);
     $display("\n");
     $stop;
   end
