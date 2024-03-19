@@ -6,6 +6,6 @@ module slave_ODD (
 
   always_ff @(posedge bus.CLK)
     if (bus.reset) D_odd <= '0;
-    else if ((bus.address ==? 8'b???????0) & (bus.write == '1)) D_odd <= bus.writedata;
+    else if ((bus.address ==? 8'b???????1) & (bus.write == '1)) D_odd <= bus.writedata;
 
 endmodule

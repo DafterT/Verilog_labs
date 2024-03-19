@@ -1,5 +1,5 @@
 `timescale 1ns / 1ns
-module lab_ms_sv5 (
+module lab_MS_SV5 (
   input  bit       CLK,
   input  bit       reset,
   output bit [7:0] D_even,

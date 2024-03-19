@@ -7,7 +7,7 @@ module db_lab_MS_SV5 (
   bit [7:0] D_even;
   bit [7:0] D_odd;
   lab_MS_SV5 UUT (.*);
-  SP_unit SP_ (
+  SP_unit SU_ (
     .source    (reset),
     .source_clk(CLK)
   );
