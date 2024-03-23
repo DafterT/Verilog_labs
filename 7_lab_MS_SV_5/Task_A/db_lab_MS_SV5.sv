@@ -1,5 +1,5 @@
 module db_lab_MS_SV5 (
-  (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "R8" *)
+  (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "23" *)
   input bit CLK
 );
 
