@@ -18,6 +18,8 @@ SP_unit
 *_restored
 transcript
 *.wlf
+*.vstf
+wlftzr94gk
 
 # ModelSim
 work
@@ -25,3 +27,5 @@ work
 # word
 ~*.doc?
 *.tmp
+*.zip
+
