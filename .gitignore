@@ -20,6 +20,14 @@ transcript
 *.wlf
 *.vstf
 wlftzr94gk
+synthesis
+*_bb.v
+*_inst.*
+*.bsf
+*.cmp
+*.csv
+*.html
+*.spd
 
 # ModelSim
 work
