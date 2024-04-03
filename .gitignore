@@ -28,6 +28,8 @@ synthesis
 *.csv
 *.html
 *.spd
+*.qdf
+*_reports
 
 # ModelSim
 work
