@@ -5,7 +5,7 @@ bit clk;
 bit reset;
 bit [7:0] data_d, dd_slave, d_slave, def_slave;
 
-assign data_d = 8'd1;
+assign data_d = 8'd18;
 
 always #10 clk = ~clk;
 
