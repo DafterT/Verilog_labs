@@ -39,3 +39,15 @@ work
 *.tmp
 *.zip
 
+# NIOSII
+workspace
+*/software/*_bsp
+*/software/*/.settings
+*/software/*/obj
+*/software/*/*project
+*/software/*/*.map
+*/software/*/*.elf
+*/software/*/Makefile
+*/software/*/*.txt
+*/software/*/*.objdump
+*/software/*/*-app
