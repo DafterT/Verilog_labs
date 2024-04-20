@@ -14,14 +14,7 @@ module tb_gen;
     forever #(PERIOD / 2) clk = ~clk;
   end
 
-  gen u_gen (
-    .clk,
-    .ENgen,
-    .ENwrk,
-    .full,
-    .wrreq,
-    .data
-  );
+  gen u_gen (.*);
 
   initial begin
     #(PERIOD * 1);
