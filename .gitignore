@@ -30,6 +30,8 @@ synthesis
 *.spd
 *.qdf
 *_reports
+*_tmp
+*.qip
 
 # ModelSim
 work
