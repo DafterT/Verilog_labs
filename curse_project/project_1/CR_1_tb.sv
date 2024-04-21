@@ -35,6 +35,16 @@ module tb_CR_1;
     Enwrk = 1'b1;
     RST = 1'b0;
     #(PERIOD * 27);
+    ENraf = 1'b1;
+    ENgen = 1'b1;
+    Enwrk = 1'b0;
+    RST = 1'b0;
+    #(PERIOD * 3);
+    ENraf = 1'b1;
+    ENgen = 1'b1;
+    Enwrk = 1'b1;
+    RST = 1'b1;
+    #(PERIOD * 3);
     $stop;
   end
 
