@@ -1,13 +1,9 @@
 //`include "lab_2s/ss_cntr.sv"
 //`include "b2bd_ROM.sv"
 module lab_3s (
-  (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "23" *)
   input clk,
-  (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "88, 89, 90, 91, 49, 46, 25, 24" *)
   input  [7:0] bc,
-  (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "84, 76, 85, 77, 86, 133, 87" *)
   output [6:0] ss,
-  (* altera_attribute = "-name IO_STANDARD \"3.3-V LVCMOS\"", chip_pin = "73, 80, 74, 83" *)
   output [4:1] dig
 );
 
