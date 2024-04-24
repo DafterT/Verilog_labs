@@ -29,4 +29,5 @@ module gen (
       ENA   <= 1'b0;
     end
   end
+
 endmodule
