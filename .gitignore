@@ -33,6 +33,7 @@ synthesis
 *_tmp
 *.qip
 *_info.json
+*~
 
 # ModelSim
 work
