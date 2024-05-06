@@ -54,3 +54,4 @@ workspace
 **/software/*/*.txt
 **/software/*/*.objdump
 **/software/*/*-app
+**.force_relink
