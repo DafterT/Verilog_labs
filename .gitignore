@@ -56,3 +56,4 @@ workspace
 **/software/*/*.objdump
 **/software/*/*-app
 **.force_relink
+**.force_rebuild
