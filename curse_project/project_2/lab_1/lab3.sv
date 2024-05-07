@@ -7,7 +7,7 @@ module lab3 (
 
   Lab3_nios u0 (
     .clk_clk      (clk),  //   clk.clk
-    .reset_reset_n(pbb),  // reset.reset_n
+    .reset_reset_n(pbb),  //   reset.reset_n
     .led_export   (led),  //   led.export
     .pba_export   (pba)   //   pba.export
   );
