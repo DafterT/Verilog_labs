@@ -3,21 +3,22 @@ module integration_file #(
   parameter N = 32
 ) (
   // Avalon_MM
-  input  reg [    7:0] avs_s0_address,    // avs_s0.address
-  input  reg           avs_s0_write,      //       .write
-  input  reg [N - 1:0] avs_s0_writedata,  //       .writedata
+  input  bit [    7:0] avs_s0_address,    // avs_s0.address
+  input  bit           avs_s0_write,      //       .write
+  input  bit [N - 1:0] avs_s0_writedata,  //       .writedata
   // clk, rst
-  input  reg           clk,               //  clock.clk
-  input  reg           srst,              //  reset.reset
+  input  bit           csi_clk,           //  clock.clk
+  input  bit           rsi_srst,          //  reset.reset
   // Conduit
-  output reg [N - 1:0] R
+  // TODO: Мб тут трабл в переполнении, нужно спросить учитывать ли это
+  output bit [N - 1:0] coe_R
 );
 
-  reg [N - 1:0] data_A = '0, data_B = '0;
+  bit [N - 1:0] data_A = '0, data_B = '0;
 
-  always_ff @(posedge clk) begin
-    R <= data_A * data_B * 2;
-    if (srst) begin
+  always_ff @(posedge csi_clk) begin
+    coe_R <= data_A * data_B * 2;
+    if (rsi_srst) begin
       data_A <= '0;
       data_B <= '0;
     end else if (avs_s0_write) begin

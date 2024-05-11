@@ -7,19 +7,19 @@ module tb_integration_file;
   bit [    7:0] avs_s0_address = 0;
   bit           avs_s0_write = 0;
   bit [N - 1:0] avs_s0_writedata = 0;
-  bit           clk = 0;
-  bit           srst = 0;
-  bit [N - 1:0] R;
+  bit           csi_clk = 0;
+  bit           rsi_srst = 0;
+  bit [N - 1:0] coe_R;
 
   initial begin
-    forever #(PERIOD / 2) clk = ~clk;
+    forever #(PERIOD / 2) csi_clk = ~csi_clk;
   end
 
   integration_file #(N) u_integration_file (.*);
 
   // TODO: Можно добавить больше тестовых ситуаций, типо на максимальном значении и тп.
   initial begin
-    srst             <= 1'b0;
+    rsi_srst             <= 1'b0;
     avs_s0_address   <= 8'd0;
     avs_s0_write     <= 1'b1;
     avs_s0_writedata <= 32'd55;
@@ -30,7 +30,7 @@ module tb_integration_file;
     #PERIOD;
     avs_s0_write <= 1'b1;
     #PERIOD;
-    srst <= 1'b1;
+    rsi_srst <= 1'b1;
     #(PERIOD * 2);
     $stop;
   end

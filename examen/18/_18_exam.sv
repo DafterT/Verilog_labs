@@ -9,12 +9,12 @@ module _18_exam (
 );
 
   exam u0 (
-    .clk_clk               (clk),        //   clk.clk
-    .reset_reset_n         (rst[1]),     // reset.reset_n
-    .s0_address            (address),    //    s0.address
-    .s0_write              (write),      //      .write
-    .s0_writedata          (writedata),  //      .writedata
-    .r_writeresponsevalid_n(R)           //     r.writeresponsevalid_n
+    .clk_clk      (clk),
+    .reset_reset_n(rst[1]),
+    .s0_address   (address),
+    .s0_write     (write),
+    .s0_writedata (writedata),
+    .r_export     (R)
   );
 
   bit [1:0] rst = '0;
