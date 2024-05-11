@@ -44,10 +44,10 @@ int main() {
 		num_ticks = time2 - time1 - timer_overhead;
 		if (alt_timestamp_start() < 0)
 			printf("Проблема инициализации таймера!\n");
-		printf("CPU clock (Гц)	: %u\n", (unsigned int)alt_timestamp_freq());
-		printf("Число ticks		: %u\n", (unsigned int)num_ticks);
+		printf("CPU clock (Гц)\t: %u\n", (unsigned int)alt_timestamp_freq());
+		printf("Число ticks\t: %u\n", (unsigned int)num_ticks);
 		// Процессорное время
-		printf("CPU time (ms)	: %.2f\n", (float)num_ticks / (float)alt_timestamp_freq() * (float)1000);
+		printf("CPU time (ms)\t: %u\n", ((unsigned int)num_ticks * (unsigned int)1000 / ((unsigned int)alt_timestamp_freq()) ));
 	}
 	return 0;
 }

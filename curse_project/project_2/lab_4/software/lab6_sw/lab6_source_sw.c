@@ -27,8 +27,8 @@ int main() {
 		in_a = IORD_ALTERA_AVALON_PIO_DATA(DATA_A_BASE);
 		in_b = IORD_ALTERA_AVALON_PIO_DATA(DATA_B_BASE);
 		time1 = alt_timestamp();
-		led = (in_a * in_b);
-		// led = ALT_CI_CI_PWR(in_a, in_b);
+		//led = (in_a * in_b);
+		led = ALT_CI_CI_PWR(in_a, in_b);
 		time2 = alt_timestamp();
 		num_ticks = time2 - time1 - timer_overhead;
 
