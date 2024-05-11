@@ -24,22 +24,26 @@ module tb_integration_file;
     forever #(PERIOD / 2) clock_clk = ~clock_clk;
   end
 
-  integration_file #(N) u_integration_file (.*);
+  integration_file #(N) u0 (.*);
 
-  // TODO: Можно добавить больше тестовых ситуаций, типо на максимальном значении и тп.
+  int input_file, char_1;
+
   initial begin
-    reset_reset    <= 1'b0;
-    asi_in0_data   <= 32'b101110;
-    asi_in0_valid  <= 1'b1;
-    asi_in1_data   <= 32'b001010;
-    asi_in1_valid  <= 1'b1;
-    aso_out0_ready <= 1'b1;
-    #PERIOD;
-    asi_in0_data <= 32'b11111000011;
-    asi_in1_data <= 32'b00011110010;
-    #(PERIOD * 2);
-    reset_reset <= 1'b1;
-    #(PERIOD * 2);
+    `define eof 32'hffff_ffff
+    input_file = $fopen("input_file.txt", "r");
+    char_1     = $fgetc(input_file);
+    while (char_1 != `eof) begin
+      $ungetc(char_1, input_file);
+      $fscanf(input_file, "%b", asi_in0_data);
+      $fscanf(input_file, "%b", asi_in0_valid);
+      $fscanf(input_file, "%b", asi_in1_data);
+      $fscanf(input_file, "%b", asi_in1_valid);
+      $fscanf(input_file, "%b", aso_out0_ready);
+      $fscanf(input_file, "%b", reset_reset);
+      #(PERIOD * 2);
+      char_1 = $fgetc(input_file);
+    end
+    $fclose(input_file);
     $stop;
   end
 
